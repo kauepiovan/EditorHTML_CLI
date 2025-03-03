@@ -68,8 +68,16 @@ namespace EditorHtml
         {
             switch(option)
             {
-                case 1: Console.WriteLine("Editor"); break;
-                case 2: Console.WriteLine("View"); break;
+                case 1: Editor.Show(); break;
+                case 2: 
+                {
+                    using (var sr = new StreamReader(@"c:\dev\texto.txt"))
+                    {
+                        string text = sr.ReadToEnd();
+                        Viewer.Show(text); 
+                    }
+                    break;
+                }
                 case 0:
                 {
                     Console.Clear();
